@@ -1,8 +1,8 @@
 # Agentic
 
-A Python framework for building intelligent AI agents powered by OpenAI's API. This project demonstrates how to create, configure, and orchestrate AI agents with tools, memory management, and multi-agent coordination.
+A Python framework for building intelligent AI agents powered by OpenAI Agents SDK. This repo demonstrates how to create, configure, and orchestrate AI agents with tools, memory management, and multi-agent coordination.
 
-## 📋 Overview
+## Overview
 
 **Agentic** provides a practical implementation of agent-based systems, showcasing key concepts like:
 - **Tool Integration**: Agents can use custom tools to interact with external APIs and services
@@ -10,7 +10,7 @@ A Python framework for building intelligent AI agents powered by OpenAI's API. T
 - **Agent Orchestration**: Multi-agent systems that work together to solve complex problems
 - **Contextual Awareness**: User context and preferences maintained throughout agent interactions
 
-## 🎯 Features
+## Features
 
 ### 1. **Travel Assistant** (`agentic.py`)
 A single-agent system that helps users plan trips by providing:
@@ -23,30 +23,21 @@ Demonstrates advanced memory management with:
 - SQLite-backed persistent sessions
 - User context preservation (premium status, user facts)
 - Automatic conversation summarization when history grows
-- Dynamic agent instructions based on user context
+- Dynamic agent instructions based on factual user context
 
 ### 3. **Agent Orchestration** (`orchestration.py`)
 Shows multi-agent patterns with:
 - Specialized agents (Weather Agent, Flight Agent)
-- Travel Coordinator Agent that can delegate tasks
-- Modular tool management
+- Travel Coordinator Agent that can delegate tasks via handoffs
+- But Note in this code the handoffs are commented off becuase for a simple example like this one they do not work
 
 ### 4. **Practice Examples** (`practice.py`)
 Additional examples and experimentation scripts for learning agent patterns.
 
-## 📦 Requirements
-
-```
-openai==2.46.0
-openai-agents==0.18.3
-python-dotenv==1.2.2
-requests==2.34.2
-pydantic==2.13.4
-```
-
+## Requirements
 See `requirements.txt` for the complete dependency list.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.8+
@@ -91,7 +82,7 @@ python orchestration.py
 ```
 Shows how specialized agents work together to handle travel-related queries.
 
-## 📚 Project Structure
+## Project Structure
 
 ```
 Agentic/
@@ -104,7 +95,7 @@ Agentic/
 └── README.md           # This file
 ```
 
-## 🛠️ Core Concepts
+## Core Concepts
 
 ### Agents
 Agents are AI-powered entities that can:
@@ -139,7 +130,7 @@ class UserContext:
     user_facts: dict
 ```
 
-## 💡 Usage Examples
+## Usage Examples
 
 ### Basic Agent Interaction
 ```python
@@ -168,7 +159,7 @@ result = Runner.run_sync(agent, "Hi, I'm Alice", session=session, context=contex
 print(result.final_output)
 ```
 
-## 🔄 How It Works
+## How It Works
 
 1. **User Input**: User provides a query to the agent
 2. **Tool Selection**: Agent decides which tools are needed
@@ -177,16 +168,16 @@ print(result.final_output)
 5. **Memory Update**: Conversation is saved to persistent storage
 6. **Context Preservation**: User context is updated for future interactions
 
-## 🔑 Key Features Explained
+## Key Features Explained
 
 ### Automatic Summarization
-When conversation history exceeds 20 messages, the system:
+When conversation history exceeds 20 messages,the system:
 - Summarizes earlier conversations using GPT-4
 - Preserves recent interactions for context
 - Maintains conversation continuity
 
 ### Premium User Features
-- Access to advanced analytics
+- Access to advanced analytics data
 - Priority support (in demonstration)
 - Can be extended with custom features
 
@@ -196,7 +187,7 @@ Agents seamlessly integrate with external APIs:
 - Restaurant data (placeholder for real APIs)
 - Flight information (placeholder for real booking systems)
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **API Key Issues:**
 - Ensure `OPENAI_API_KEY` is set in your `.env` file
@@ -210,37 +201,13 @@ Agents seamlessly integrate with external APIs:
 - Check that the SQLite database file has write permissions
 - Ensure the session directory exists
 
-## 📖 Learning Resources
+## Learning Resources
 
 This project demonstrates:
-- Building AI agents with OpenAI's API
+- Building AI agents with OpenAI Agents SDK
 - Tool use and function calling
-- Session management and memory persistence
+- Session management, memory persistence and context-aware conversations
 - Multi-agent systems and orchestration
-- Context-aware conversations
 - Best practices for agent development
 
-## 🤝 Contributing
-
-Feel free to:
-- Extend the agents with new tools
-- Add new examples
-- Improve documentation
-- Create specialized agents for different domains
-
-## 📝 License
-
-This project is provided as-is for educational and development purposes.
-
-## 🎓 Educational Notes
-
-This repository is ideal for learning:
-- How to design agent-based systems
-- Integration with LLM APIs
-- Conversation memory and persistence
-- Multi-agent coordination patterns
-- Best practices for tool design
-
 ---
-
-**Built with Python and OpenAI's Agent Framework**
